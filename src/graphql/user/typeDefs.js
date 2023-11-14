@@ -16,6 +16,15 @@ export const UserTypeDefs = `#graphql
     password:String!,
     emailId: String!,
   }
+  input UserLoginInput{
+    emailId:String!,
+    password:String!
+  }
+  # input UserCheckInput{
+  #   emailId:String!,
+  #   password:String!,
+  #   jwt:String!
+  # }
   type Authors{
     id: Int,
     FamousBook: String,

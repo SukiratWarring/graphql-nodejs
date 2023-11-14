@@ -1,6 +1,6 @@
 // Resolvers define how to fetch the types defined in your schema.
 
-import { UserService } from "../../services/user.js";
+import { UserService } from "../../services/userService.js";
 
 // This resolver retrieves books from the "books" array above.
 export const custom = {
@@ -12,6 +12,17 @@ const queries = {
   books: () => books,
   authorsDesc: () => authorsDesc,
   getauthByname: (parent, { name }) => books.find((obj) => obj.author === name),
+  userLogin: async (_, payload) => {
+    const res = await UserService.userLogin(payload.input);
+    return res;
+  },
+  getCurrentUserLoggedIn: async (_, payload, context) => {
+    console.log("context", context);
+    if (context && context.emailId) {
+      return context.emailId;
+    }
+    throw new Error();
+  },
 };
 
 const mutations = {
