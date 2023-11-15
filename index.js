@@ -3,7 +3,7 @@ import "dotenv/config";
 import cors from "cors";
 import { creatingGraphqlServer } from "./src/graphql/index.js";
 import { expressMiddleware } from "@apollo/server/express4";
-import { connectingToDb } from "./Database/mongoose.js";
+import { connectingToDb } from "./src/Database/mongoose.js";
 import { UserService } from "./src/services/userService.js";
 const app = new express();
 await connectingToDb();

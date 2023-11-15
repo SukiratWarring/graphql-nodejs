@@ -1,5 +1,5 @@
 import { createHmac } from "node:crypto";
-import { User } from "../../Model/UserModel.js";
+import { User } from "../Model/UserModel.js";
 import jwt from "jsonwebtoken";
 
 export class UserService {
